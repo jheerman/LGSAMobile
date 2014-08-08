@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<resources>
+  <string-array name="drawer_sections">
+    <item>@string/ScheduleFragmentName</item>
+    <item>@string/NewsFragmentName</item>
+    <item>@string/ContactFragmentName</item>
+  </string-array>
+</resources>
