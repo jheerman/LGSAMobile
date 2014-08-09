@@ -101,6 +101,8 @@ namespace LGSA.Droid
 
 		private void ListItemClicked(int position)
 		{
+			var transition = false;
+
 			if (lastSelectedSection == position)
 				return;
 
@@ -111,36 +113,44 @@ namespace LGSA.Droid
 			switch (position)
 			{
 				case 0:
-					fragment = ScheduleFragment.NewInstance();
+					fragment = ScheduleFragment.NewInstance ();
+					transition = true;
 					break;
 				case 1:
-					fragment = NewsFragment.NewInstance();
+					fragment = NewsFragment.NewInstance ();
+					transition = true;
 					break;
-				default:
-					//just close drawer and exit
-					drawerLayout.CloseDrawer(drawerListView);
-					return;
+				case 2:
+					transition = false;
+					var email = new Intent (Android.Content.Intent.ActionSend);
+					email.PutExtra (Android.Content.Intent.ExtraEmail, 
+					new string[]{ "info@lgsasoftball.org" });
+					email.PutExtra (Android.Content.Intent.ExtraSubject, "Question");
+					email.SetType ("message/rfc822");
+					StartActivity (email);
+					
+					break;
 			}
 
+			if (transition) {
+				FragmentManager.BeginTransaction ()
+					.Replace (Resource.Id.content_frame, fragment)
+					.Commit ();
 
-			FragmentManager.BeginTransaction()
-				.Replace(Resource.Id.content_frame, fragment)
-				.Commit();
+				drawerListView.SetItemChecked (position, true);
+				ActionBar.Title = currentSectionTitle = sections [position];
+			}
 
-			drawerListView.SetItemChecked(position, true);
-			ActionBar.Title = currentSectionTitle = sections[position];
 			drawerLayout.CloseDrawer(drawerListView);
 		}
 
 		public override bool OnPrepareOptionsMenu(IMenu menu)
 		{
-
 			var drawerOpen = drawerLayout.IsDrawerOpen(drawerListView);
 
 			//When we open the drawer we usually do not want to show any menu options
 			for (int i = 0; i < menu.Size(); i++)
 				menu.GetItem(i).SetVisible(!drawerOpen);
-
 
 			return base.OnPrepareOptionsMenu(menu);
 		}
