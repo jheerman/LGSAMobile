@@ -93,6 +93,7 @@
     <AndroidResource Include="Resources\layout\schedule.axml" />
     <AndroidResource Include="Resources\layout\news.axml" />
     <AndroidResource Include="Resources\layout\schedule_item.axml" />
+    <AndroidResource Include="Resources\menu\schedule_menu.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <ItemGroup>
@@ -105,6 +106,7 @@
     <Folder Include="Resources\drawable-xxhdpi\" />
     <Folder Include="Resources\layout\" />
     <Folder Include="Views\" />
+    <Folder Include="Resources\menu\" />
   </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="xamandroidsupportv4-18">

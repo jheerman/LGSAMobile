@@ -22,6 +22,7 @@ namespace LGSA.Droid.Fragments
 			base.OnCreate(savedInstanceState);
 
 			ListAdapter = new ScheduleAdapter (Activity, items);
+			SetHasOptionsMenu (true);
 		}
 
 		public static ScheduleFragment NewInstance()
@@ -34,6 +35,23 @@ namespace LGSA.Droid.Fragments
 		{
 			base.OnCreateView(inflater, container, savedInstanceState);
 			return inflater.Inflate(Resource.Layout.schedule, null);
+		}
+
+		public override void OnCreateOptionsMenu (IMenu menu, MenuInflater inflater)
+		{
+			Activity.MenuInflater.Inflate (Resource.Menu.schedule_menu, menu);
+			base.OnCreateOptionsMenu (menu, inflater);
+		}
+
+		public override bool OnOptionsItemSelected (IMenuItem item)
+		{
+			switch (item.ItemId) {
+			case Android.Resource.Id.Home:
+			case Resource.Id.action_schedule_search:
+				break;
+			}
+
+			return base.OnOptionsItemSelected (item);
 		}
 	}
 }

@@ -186,29 +186,32 @@ namespace LGSA.Droid
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f090001
-			public const int content_frame = 2131296257;
+			// aapt resource value: 0x7f0a0008
+			public const int action_schedule_search = 2131361800;
 			
-			// aapt resource value: 0x7f090000
-			public const int drawer_layout = 2131296256;
+			// aapt resource value: 0x7f0a0001
+			public const int content_frame = 2131361793;
 			
-			// aapt resource value: 0x7f090002
-			public const int left_drawer = 2131296258;
+			// aapt resource value: 0x7f0a0000
+			public const int drawer_layout = 2131361792;
 			
-			// aapt resource value: 0x7f090005
-			public const int schedule_date = 2131296261;
+			// aapt resource value: 0x7f0a0002
+			public const int left_drawer = 2131361794;
 			
-			// aapt resource value: 0x7f090003
-			public const int schedule_dateContainer = 2131296259;
+			// aapt resource value: 0x7f0a0005
+			public const int schedule_date = 2131361797;
 			
-			// aapt resource value: 0x7f090007
-			public const int schedule_description = 2131296263;
+			// aapt resource value: 0x7f0a0003
+			public const int schedule_dateContainer = 2131361795;
 			
-			// aapt resource value: 0x7f090004
-			public const int schedule_month = 2131296260;
+			// aapt resource value: 0x7f0a0007
+			public const int schedule_description = 2131361799;
 			
-			// aapt resource value: 0x7f090006
-			public const int schedule_weekday = 2131296262;
+			// aapt resource value: 0x7f0a0004
+			public const int schedule_month = 2131361796;
+			
+			// aapt resource value: 0x7f0a0006
+			public const int schedule_weekday = 2131361798;
 			
 			static Id()
 			{
@@ -248,6 +251,22 @@ namespace LGSA.Droid
 			}
 		}
 		
+		public partial class Menu
+		{
+			
+			// aapt resource value: 0x7f090000
+			public const int schedule_menu = 2131296256;
+			
+			static Menu()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Menu()
+			{
+			}
+		}
+		
 		public partial class String
 		{
 			
@@ -265,6 +284,9 @@ namespace LGSA.Droid
 			
 			// aapt resource value: 0x7f070002
 			public const int ScheduleFragmentName = 2131165186;
+			
+			// aapt resource value: 0x7f070007
+			public const int action_search_search = 2131165191;
 			
 			// aapt resource value: 0x7f070006
 			public const int drawer_close = 2131165190;

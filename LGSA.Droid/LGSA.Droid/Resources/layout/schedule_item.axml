@@ -33,6 +33,7 @@
             android:gravity="center"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="@color/dark_gray"
+            android:fontFamily="sans-serif-bold"
             android:layout_alignParentLeft="true"
             android:layout_alignParentRight="true" />
         <TextView
@@ -48,9 +49,11 @@
     <TextView
         android:text="Jets 10u Tryouts @ 10am"
         android:textColor="@android:color/black"
+        android:fontFamily="sans-serif-condensed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/schedule_description"
         android:layout_alignParentTop="true"
+        android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_toRightOf="@+id/schedule_dateContainer" />
 </RelativeLayout>
