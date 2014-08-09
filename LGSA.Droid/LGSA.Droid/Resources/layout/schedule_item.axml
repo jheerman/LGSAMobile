@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:minWidth="25px"
+    android:minHeight="25px"
+    android:background="@android:color/white"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="left"
+    android:paddingRight="@dimen/ElementSpacing"
+    android:paddingLeft="@dimen/ElementSpacing"
+    android:paddingTop="@dimen/ElementSpacing"
+    android:paddingBottom="@dimen/ElementSpacing">
+    <RelativeLayout
+        android:minWidth="75dp"
+        android:minHeight="25px"
+        android:layout_width="75dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/schedule_dateContainer">
+        <TextView
+            android:text="AUG"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/schedule_month"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:gravity="center" />
+        <TextView
+            android:text="9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/schedule_month"
+            android:id="@+id/schedule_date"
+            android:gravity="center"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/dark_gray"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true" />
+        <TextView
+            android:text="SAT"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/schedule_date"
+            android:id="@+id/schedule_weekday"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:gravity="center" />
+    </RelativeLayout>
+    <TextView
+        android:text="Jets 10u Tryouts @ 10am"
+        android:textColor="@android:color/black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/schedule_description"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/schedule_dateContainer" />
+</RelativeLayout>

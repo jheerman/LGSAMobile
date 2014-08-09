@@ -54,6 +54,7 @@
     <Compile Include="Helpers\DrawerToggle.cs" />
     <Compile Include="Fragments\ScheduleFragment.cs" />
     <Compile Include="Fragments\NewsFragment.cs" />
+    <Compile Include="Views\ScheduleAdapter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -91,6 +92,7 @@
     <AndroidResource Include="Resources\layout\main.axml" />
     <AndroidResource Include="Resources\layout\schedule.axml" />
     <AndroidResource Include="Resources\layout\news.axml" />
+    <AndroidResource Include="Resources\layout\schedule_item.axml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <ItemGroup>
@@ -102,6 +104,7 @@
     <Folder Include="Resources\drawable-mdpi\" />
     <Folder Include="Resources\drawable-xxhdpi\" />
     <Folder Include="Resources\layout\" />
+    <Folder Include="Views\" />
   </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="xamandroidsupportv4-18">

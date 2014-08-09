@@ -13,11 +13,15 @@ using Android.Widget;
 
 namespace LGSA.Droid.Fragments
 {
-	public class ScheduleFragment : Fragment
+	public class ScheduleFragment : ListFragment
 	{
+		string[] items = new[] { "Jets 10u Tryouts @ 10am", "Jets 12u Tryouts @ noon", "Jets 14u Tryouts @ 2pm" };
+
 		public override void OnCreate(Bundle savedInstanceState)
 		{
 			base.OnCreate(savedInstanceState);
+
+			ListAdapter = new ScheduleAdapter (Activity, items);
 		}
 
 		public static ScheduleFragment NewInstance()
@@ -28,7 +32,7 @@ namespace LGSA.Droid.Fragments
 
 		public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
 		{
-			var ignored = base.OnCreateView(inflater, container, savedInstanceState);
+			base.OnCreateView(inflater, container, savedInstanceState);
 			return inflater.Inflate(Resource.Layout.schedule, null);
 		}
 	}

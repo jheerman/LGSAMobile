@@ -69,6 +69,9 @@ namespace LGSA.Droid
 		public partial class Color
 		{
 			
+			// aapt resource value: 0x7f050003
+			public const int dark_gray = 2131034115;
+			
 			// aapt resource value: 0x7f050001
 			public const int drawer_background = 2131034113;
 			
@@ -91,11 +94,53 @@ namespace LGSA.Droid
 		public partial class Dimension
 		{
 			
-			// aapt resource value: 0x7f060001
-			public const int drawer_item_padding = 2131099649;
+			// aapt resource value: 0x7f06000b
+			public const int ActivitySpacing = 2131099659;
+			
+			// aapt resource value: 0x7f06000c
+			public const int ActivitySpacingNegative = 2131099660;
+			
+			// aapt resource value: 0x7f06000a
+			public const int ElementSpacing = 2131099658;
+			
+			// aapt resource value: 0x7f060005
+			public const int ExpandableListViewHeaderPadding = 2131099653;
+			
+			// aapt resource value: 0x7f060004
+			public const int HeaderPadding = 2131099652;
+			
+			// aapt resource value: 0x7f060006
+			public const int LargePadding = 2131099654;
 			
 			// aapt resource value: 0x7f060000
-			public const int drawer_width = 2131099648;
+			public const int LargeText = 2131099648;
+			
+			// aapt resource value: 0x7f06000d
+			public const int ListItemIndent = 2131099661;
+			
+			// aapt resource value: 0x7f060007
+			public const int MediumPadding = 2131099655;
+			
+			// aapt resource value: 0x7f060001
+			public const int MediumText = 2131099649;
+			
+			// aapt resource value: 0x7f060009
+			public const int MicroPadding = 2131099657;
+			
+			// aapt resource value: 0x7f060003
+			public const int MicroText = 2131099651;
+			
+			// aapt resource value: 0x7f060008
+			public const int SmallPadding = 2131099656;
+			
+			// aapt resource value: 0x7f060002
+			public const int SmallText = 2131099650;
+			
+			// aapt resource value: 0x7f06000f
+			public const int drawer_item_padding = 2131099663;
+			
+			// aapt resource value: 0x7f06000e
+			public const int drawer_width = 2131099662;
 			
 			static Dimension()
 			{
@@ -150,8 +195,20 @@ namespace LGSA.Droid
 			// aapt resource value: 0x7f090002
 			public const int left_drawer = 2131296258;
 			
+			// aapt resource value: 0x7f090005
+			public const int schedule_date = 2131296261;
+			
 			// aapt resource value: 0x7f090003
-			public const int textView1 = 2131296259;
+			public const int schedule_dateContainer = 2131296259;
+			
+			// aapt resource value: 0x7f090007
+			public const int schedule_description = 2131296263;
+			
+			// aapt resource value: 0x7f090004
+			public const int schedule_month = 2131296260;
+			
+			// aapt resource value: 0x7f090006
+			public const int schedule_weekday = 2131296262;
 			
 			static Id()
 			{
@@ -177,6 +234,9 @@ namespace LGSA.Droid
 			
 			// aapt resource value: 0x7f030003
 			public const int schedule = 2130903043;
+			
+			// aapt resource value: 0x7f030004
+			public const int schedule_item = 2130903044;
 			
 			static Layout()
 			{

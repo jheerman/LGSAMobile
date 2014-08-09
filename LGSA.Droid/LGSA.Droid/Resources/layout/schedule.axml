@@ -4,11 +4,12 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="@android:color/white">
-    <TextView
-        android:text="@string/ScheduleFragmentName"
-        android:textAppearance="?android:attr/textAppearanceLarge"
+    <ListView
+        android:id="@id/android:list"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="@android:color/black"
-        android:id="@+id/textView1" />
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:divider="@android:color/black"
+        android:dividerHeight="1dp"
+        android:drawSelectorOnTop="true" />
 </LinearLayout>

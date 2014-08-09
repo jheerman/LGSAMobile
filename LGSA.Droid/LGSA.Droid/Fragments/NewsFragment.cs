@@ -13,22 +13,26 @@ using Android.Widget;
 
 namespace LGSA.Droid.Fragments
 {
-	public class NewsFragment : Fragment
+	public class NewsFragment : ListFragment
   	{
-    	public override void OnCreate(Bundle savedInstanceState)
-	    {
+		string[] items = new[] { "Coach Needed", "Golf Outing Fundraiser" };
+
+		public override void OnCreate(Bundle savedInstanceState)
+		{
 			base.OnCreate(savedInstanceState);
-	    }
+
+			ListAdapter = new ScheduleAdapter (Activity, items);
+		}
 
 		public static NewsFragment NewInstance()
 		{
 			var newsFragment = new NewsFragment { Arguments = new Bundle() };
-		  	return newsFragment;
+			return newsFragment;
 		}
 
 		public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
 		{
-			var ignored = base.OnCreateView(inflater, container, savedInstanceState);
+			base.OnCreateView(inflater, container, savedInstanceState);
 			return inflater.Inflate(Resource.Layout.news, null);
 		}
 	}
