@@ -49,6 +49,13 @@ namespace LGSA.Droid
 				_context.LayoutInflater.Inflate(Resource.Layout.schedule_item, null);
 				
 			var description = view.FindViewById<TextView> (Resource.Id.schedule_description);
+			var month = view.FindViewById<TextView> (Resource.Id.schedule_month);
+			var day = view.FindViewById<TextView> (Resource.Id.schedule_date);
+			var dow = view.FindViewById<TextView> (Resource.Id.schedule_weekday);
+
+			dow.Text = item.Date.ToString ("ddd");
+			day.Text = item.Date.Day.ToString();
+			month.Text = item.Date.ToString("MMM");
 			description.Text = item.Description;
 
 			return view;
