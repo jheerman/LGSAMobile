@@ -45,6 +45,9 @@
     <Reference Include="Xamarin.Android.Support.v4">
       <HintPath>..\Components\xamandroidsupportv4-18-20.0.0.3\lib\android\Xamarin.Android.Support.v4.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\Components\json.net-4.5.11\lib\android\Newtonsoft.Json.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Resources\Resource.designer.cs" />
@@ -114,5 +117,18 @@
       <Version>20.0.0.3</Version>
       <Visible>False</Visible>
     </XamarinComponentReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LGSA.Data\LGSA.Data.csproj">
+      <Project>{25B59DEF-EDBE-4831-81E4-4BF956A01487}</Project>
+      <Name>LGSA.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LGSA.Domain\LGSA.Domain.csproj">
+      <Project>{E86A305A-8E0E-4E7C-9FFA-486A2D449135}</Project>
+      <Name>LGSA.Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\calendar.json" />
   </ItemGroup>
 </Project>

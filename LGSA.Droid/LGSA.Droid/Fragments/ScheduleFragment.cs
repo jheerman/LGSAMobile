@@ -11,15 +11,24 @@ using Android.Util;
 using Android.Views;
 using Android.Widget;
 
+using LGSA.Data;
+using LGSA.Domain;
+using System.IO;
+
 namespace LGSA.Droid.Fragments
 {
 	public class ScheduleFragment : ListFragment
 	{
-		string[] items = new[] { "Jets 10u Tryouts @ 10am", "Jets 12u Tryouts @ noon", "Jets 14u Tryouts @ 2pm" };
+		List<CalendarItem> items;
 
 		public override void OnCreate(Bundle savedInstanceState)
 		{
 			base.OnCreate(savedInstanceState);
+
+			using (var sr = new StreamReader (Activity.Assets.Open ("calendar.json"))) {
+				var json = sr.ReadToEnd ();		
+				items = new ScheduleRepository().GetCalendarItems(json);
+			}
 
 			ListAdapter = new ScheduleAdapter (Activity, items);
 			SetHasOptionsMenu (true);

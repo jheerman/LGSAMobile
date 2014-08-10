@@ -21,7 +21,7 @@ namespace LGSA.Droid.Fragments
 		{
 			base.OnCreate(savedInstanceState);
 
-			ListAdapter = new ScheduleAdapter (Activity, items);
+			ListAdapter = new ArrayAdapter (Activity, Android.Resource.Layout.SimpleListItem1, items);
 		}
 
 		public static NewsFragment NewInstance()
