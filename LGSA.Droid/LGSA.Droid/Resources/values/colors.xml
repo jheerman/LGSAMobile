@@ -4,4 +4,5 @@
   <color name="drawer_background">#FF111111</color>
   <color name="drawer_item_text_color">#FFFFFFFF</color>
   <color name="dark_gray">#4f5052</color>
+  <color name="lgsa_purple">#334A8D</color>
 </resources>

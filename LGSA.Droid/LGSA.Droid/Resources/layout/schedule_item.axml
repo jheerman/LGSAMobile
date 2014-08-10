@@ -23,7 +23,9 @@
             android:id="@+id/schedule_month"
             android:layout_alignParentLeft="true"
             android:layout_alignParentRight="true"
-            android:gravity="center" />
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textAllCaps="true" />
         <TextView
             android:text="9"
             android:layout_width="wrap_content"
@@ -33,7 +35,8 @@
             android:gravity="center"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="@color/dark_gray"
-            android:fontFamily="sans-serif-bold"
+            android:fontFamily="sans-serif"
+            android:textStyle="bold"
             android:layout_alignParentLeft="true"
             android:layout_alignParentRight="true" />
         <TextView
@@ -44,7 +47,9 @@
             android:id="@+id/schedule_weekday"
             android:layout_alignParentLeft="true"
             android:layout_alignParentRight="true"
-            android:gravity="center" />
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textAllCaps="true" />
     </RelativeLayout>
     <TextView
         android:text="Jets 10u Tryouts @ 10am"

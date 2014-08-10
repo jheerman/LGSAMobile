@@ -78,6 +78,9 @@ namespace LGSA.Droid
 			// aapt resource value: 0x7f050002
 			public const int drawer_item_text_color = 2131034114;
 			
+			// aapt resource value: 0x7f050004
+			public const int lgsa_purple = 2131034116;
+			
 			// aapt resource value: 0x7f050000
 			public const int light_background = 2131034112;
 			

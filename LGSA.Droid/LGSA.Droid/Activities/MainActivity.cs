@@ -12,7 +12,6 @@ using Android.Support.V4.Widget;
 using LGSA.Droid.Helpers;
 using LGSA.Droid.Fragments;
 
-
 namespace LGSA.Droid
 {
 	[Activity (Label = "LGSA", Icon = "@drawable/icon")]
