@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<!-- Generated with http://android-holo-colors.com -->
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+	<style name="LGSA.Purple" parent="@style/_lgsa_purple"/>
+
+	<style name="_lgsa_purple" parent="android:Theme.Holo.Light.DarkActionBar">
+		<item name="android:actionBarStyle">@style/PurpleActionBar</item>
+		<item name="android:popupMenuStyle">@style/PurpleActionBar</item>
+	    <item name="android:dropDownListViewStyle">@style/PurpleDropDownList</item>
+
+	    <item name="android:actionBarWidgetTheme">@style/Theme.stylingactionbar.widget</item>
+	</style>
+
+  	<style name="PurpleActionBar" parent="@android:style/Widget.Holo.Light.ActionBar">
+		<item name="android:background">@color/lgsa_purple</item>
+		<item name="android:titleTextStyle">@style/LGSA.ActionBar.Text</item>
+	</style>
+
+	<style name="PurpleActionMenu" parent="android:style/Widget.Holo.Light.ListPopupWindow">
+        <item name="android:background">@color/lgsa_purple</item>
+    </style>
+
+    <style name="PurpleDropDownList" parent="@android:style/Widget.Holo.ListView.DropDown">
+	    <item name="android:background">@color/lgsa_purple</item>
+	</style>
+
+	<style name="LGSA.ActionBar.Text" parent="@android:style/TextAppearance">
+	    <item name="android:textColor">@android:color/white</item>
+	    <item name="android:textSize">25sp</item>
+	    <item name="android:textStyle">bold</item>
+	    <item name="android:fontFamily">sans-serif</item>
+	</style>
+
+	<style name="Theme.stylingactionbar.widget" parent="@android:style/Theme.Holo">
+	    <item name="android:popupMenuStyle">@style/PurpleActionMenu</item>
+	    <item name="android:dropDownListViewStyle">@style/PurpleDropDownList</item>
+	</style>
+
+</resources>

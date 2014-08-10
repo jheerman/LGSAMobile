@@ -94,6 +94,7 @@
     <AndroidResource Include="Resources\layout\news.axml" />
     <AndroidResource Include="Resources\layout\schedule_item.axml" />
     <AndroidResource Include="Resources\menu\schedule_menu.xml" />
+    <AndroidResource Include="Resources\values\theme_lgsa_purple.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <ItemGroup>

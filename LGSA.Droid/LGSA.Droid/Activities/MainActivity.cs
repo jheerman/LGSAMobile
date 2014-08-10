@@ -14,7 +14,7 @@ using LGSA.Droid.Fragments;
 
 namespace LGSA.Droid
 {
-	[Activity (Label = "LGSA", Icon = "@drawable/icon")]
+	[Activity (Label = "LGSA", Theme="@style/LGSA.Purple", Icon = "@drawable/icon")]
 	public class MainActivity : Activity
 	{
 		private DrawerToggle drawerToggle;

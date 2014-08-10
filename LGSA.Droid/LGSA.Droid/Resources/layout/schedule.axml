@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:divider="@android:color/black"
+        android:divider="@color/lgsa_purple"
         android:dividerHeight="1dp"
         android:drawSelectorOnTop="true" />
 </LinearLayout>

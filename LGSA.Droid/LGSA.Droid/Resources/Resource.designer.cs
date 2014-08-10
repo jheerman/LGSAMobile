@@ -319,17 +319,38 @@ namespace LGSA.Droid
 			// aapt resource value: 0x7f080001
 			public const int BaseThemeLightDarkActionBar = 2131230721;
 			
+			// aapt resource value: 0x7f08000c
+			public const int LGSA_ActionBar_Text = 2131230732;
+			
+			// aapt resource value: 0x7f080007
+			public const int LGSA_Purple = 2131230727;
+			
+			// aapt resource value: 0x7f080009
+			public const int PurpleActionBar = 2131230729;
+			
+			// aapt resource value: 0x7f08000a
+			public const int PurpleActionMenu = 2131230730;
+			
+			// aapt resource value: 0x7f08000b
+			public const int PurpleDropDownList = 2131230731;
+			
 			// aapt resource value: 0x7f080003
 			public const int Theme = 2131230723;
 			
 			// aapt resource value: 0x7f080006
 			public const int Theme_Splash = 2131230726;
 			
+			// aapt resource value: 0x7f08000d
+			public const int Theme_stylingactionbar_widget = 2131230733;
+			
 			// aapt resource value: 0x7f080004
 			public const int ThemeLight = 2131230724;
 			
 			// aapt resource value: 0x7f080005
 			public const int ThemeLightDarkActionBar = 2131230725;
+			
+			// aapt resource value: 0x7f080008
+			public const int _lgsa_purple = 2131230728;
 			
 			static Style()
 			{
