@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 using Newtonsoft.Json.Serialization;
 using LGSA.Domain;
+using System.Threading.Tasks;
 
 namespace LGSA.Data
 {

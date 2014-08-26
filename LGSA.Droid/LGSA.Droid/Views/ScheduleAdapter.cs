@@ -4,21 +4,25 @@ using Android.Views;
 using Android.Widget;
 using LGSA.Domain;
 using System.Collections.Generic;
+using Java.Lang;
+using System.Linq;
 
 namespace LGSA.Droid
 {
-	public class ScheduleAdapter : BaseAdapter
+	public class ScheduleAdapter : BaseAdapter, IFilterable
 	{
 		public ScheduleAdapter ()
 		{ }
 
 		private readonly Activity _context;
-		private readonly List<CalendarItem> _items;
+		private List<CalendarItem> _originalData;
+		private List<CalendarItem> _items;
 
 		public ScheduleAdapter (Activity context, List<CalendarItem> items)
 		{
 			_context = context;
 			_items = items;
+			Filter = new ScheduleFilter (this);
 		}
 
 		public override Java.Lang.Object GetItem (int position)
@@ -59,6 +63,57 @@ namespace LGSA.Droid
 			description.Text = item.Description;
 
 			return view;
+		}
+
+		public Filter Filter { get; private set; }
+
+		private class ScheduleFilter : Filter
+		{
+			private readonly ScheduleAdapter _adapter;
+			public ScheduleFilter(ScheduleAdapter adapter)
+			{
+				_adapter = adapter;
+			}
+
+			protected override FilterResults PerformFiltering(ICharSequence constraint)
+			{
+				var returnObj = new FilterResults();
+				var results = new List<CalendarItem>();
+				if (_adapter._originalData == null)
+					_adapter._originalData = _adapter._items;
+
+				if (constraint == null) return returnObj;
+
+				if (_adapter._originalData != null && _adapter._originalData.Any())
+				{
+					// Compare constraint to all names lowercased. 
+					// It they are contained they are added to results.
+					results.AddRange(
+						_adapter._originalData.Where(
+							item => item.Description.ToLower().Contains(constraint.ToString())));
+				}
+
+				// Nasty piece of .NET to Java wrapping, be careful with this!
+				returnObj.Values = FromArray(results.Select(r => r.ToJavaObject()).ToArray());
+				returnObj.Count = results.Count;
+
+				constraint.Dispose();
+
+				return returnObj;
+			}
+
+			protected override void PublishResults(ICharSequence constraint, FilterResults results)
+			{
+				using (var values = results.Values)
+					_adapter._items = values.ToArray<Java.Lang.Object>()
+						.Select(r => r.ToNetObject<CalendarItem>()).ToList();
+
+				_adapter.NotifyDataSetChanged();
+
+				// Don't do this and see GREF counts rising
+				constraint.Dispose();
+				results.Dispose();
+			}
 		}
 	}
 }

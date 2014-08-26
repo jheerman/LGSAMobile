@@ -58,6 +58,7 @@
     <Compile Include="Fragments\ScheduleFragment.cs" />
     <Compile Include="Fragments\NewsFragment.cs" />
     <Compile Include="Views\ScheduleAdapter.cs" />
+    <Compile Include="Helpers\Extensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />

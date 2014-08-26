@@ -14,12 +14,16 @@ using Android.Widget;
 using LGSA.Data;
 using LGSA.Domain;
 using System.IO;
+using Android.Support.V4.View;
 
 namespace LGSA.Droid.Fragments
 {
 	public class ScheduleFragment : ListFragment
 	{
 		List<CalendarItem> items;
+		SearchView _searchView;
+		ScheduleAdapter _adapter;
+		ScheduleRepository schedRepo = new ScheduleRepository();
 
 		public override void OnCreate(Bundle savedInstanceState)
 		{
@@ -27,10 +31,11 @@ namespace LGSA.Droid.Fragments
 
 			using (var sr = new StreamReader (Activity.Assets.Open ("calendar.json"))) {
 				var json = sr.ReadToEnd ();		
-				items = new ScheduleRepository().GetCalendarItems(json);
+				items = schedRepo.GetCalendarItems(json);
 			}
 
-			ListAdapter = new ScheduleAdapter (Activity, items);
+			_adapter = new ScheduleAdapter (Activity, items);
+			ListAdapter = _adapter;
 			SetHasOptionsMenu (true);
 		}
 
@@ -49,7 +54,21 @@ namespace LGSA.Droid.Fragments
 		public override void OnCreateOptionsMenu (IMenu menu, MenuInflater inflater)
 		{
 			Activity.MenuInflater.Inflate (Resource.Menu.schedule_menu, menu);
-			base.OnCreateOptionsMenu (menu, inflater);
+
+			var item = menu.FindItem(Resource.Id.action_schedule_search);
+
+			//Handle expand/colapse of action bar
+			MenuItemCompat.SetOnActionExpandListener(item, new SearchViewExpandListener(_adapter));
+
+			var searchItem = MenuItemCompat.GetActionView(item);
+			_searchView = searchItem.JavaCast<SearchView>();
+			_searchView.QueryTextChange += (s, e) => _adapter.Filter.InvokeFilter(e.NewText);
+
+			_searchView.QueryTextSubmit += (s, e) =>
+			{
+				Toast.MakeText(Activity, "Searched for: " + e.Query, ToastLength.Short).Show();
+				e.Handled = true;
+			};
 		}
 
 		public override bool OnOptionsItemSelected (IMenuItem item)
@@ -61,6 +80,28 @@ namespace LGSA.Droid.Fragments
 			}
 
 			return base.OnOptionsItemSelected (item);
+		}
+	}
+
+	public class SearchViewExpandListener 
+		: Java.Lang.Object, MenuItemCompat.IOnActionExpandListener
+	{
+		private readonly IFilterable _adapter;
+
+		public SearchViewExpandListener(IFilterable adapter)
+		{
+			_adapter = adapter;
+		}
+
+		public bool OnMenuItemActionCollapse(IMenuItem item)
+		{
+			_adapter.Filter.InvokeFilter("");
+			return true;
+		}
+
+		public bool OnMenuItemActionExpand(IMenuItem item)
+		{
+			return true;
 		}
 	}
 }

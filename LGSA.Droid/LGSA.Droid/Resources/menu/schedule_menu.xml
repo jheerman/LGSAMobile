@@ -1,7 +1,8 @@
 ﻿<menu xmlns:android="http://schemas.android.com/apk/res/android" >
     <item android:id="@+id/action_schedule_search"
 		android:showAsAction="collapseActionView|ifRoom"
-        android:actionViewClass="android.widget.SearchView"
+		android:actionViewClass="android.widget.SearchView"
+		android:queryHint="Search Schedule"
 		android:icon="@android:drawable/ic_menu_search"
 		android:title="@string/action_search_search"/>
 </menu>
