@@ -4,5 +4,5 @@
 		android:actionViewClass="android.widget.SearchView"
 		android:queryHint="Search Schedule"
 		android:icon="@android:drawable/ic_menu_search"
-		android:title="@string/action_search_search"/>
+		android:title="@string/action_schedule_search"/>
 </menu>

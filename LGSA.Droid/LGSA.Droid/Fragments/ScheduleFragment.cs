@@ -24,20 +24,27 @@ namespace LGSA.Droid.Fragments
 		SearchView _searchView;
 		ScheduleAdapter _adapter;
 		ScheduleRepository schedRepo = new ScheduleRepository();
+		ArrayAdapter _spinnerAdapter;
 
 		public override void OnCreate(Bundle savedInstanceState)
 		{
 			base.OnCreate(savedInstanceState);
 
 			using (var sr = new StreamReader (Activity.Assets.Open ("calendar.json"))) {
-				var json = sr.ReadToEnd ();		
+				var json = sr.ReadToEnd ();
 				items = schedRepo.GetCalendarItems(json);
 			}
 
 			_adapter = new ScheduleAdapter (Activity, items);
 			ListAdapter = _adapter;
 			SetHasOptionsMenu (true);
+
+			_spinnerAdapter = new ArrayAdapter (Activity, Resource.Array.filter_division);
+			Activity.ActionBar.NavigationMode = ActionBarNavigationMode.List;
+			Activity.ActionBar.SetListNavigationCallbacks (_spinnerAdapter, new ScreenNavigationListener (Activity, _spinnerAdapter));
 		}
+
+
 
 		public static ScheduleFragment NewInstance()
 		{
@@ -55,12 +62,12 @@ namespace LGSA.Droid.Fragments
 		{
 			Activity.MenuInflater.Inflate (Resource.Menu.schedule_menu, menu);
 
-			var item = menu.FindItem(Resource.Id.action_schedule_search);
+			var searchOption = menu.FindItem(Resource.Id.action_schedule_search);
 
 			//Handle expand/colapse of action bar
-			MenuItemCompat.SetOnActionExpandListener(item, new SearchViewExpandListener(_adapter));
+			MenuItemCompat.SetOnActionExpandListener(searchOption, new SearchViewExpandListener(_adapter));
 
-			var searchItem = MenuItemCompat.GetActionView(item);
+			var searchItem = MenuItemCompat.GetActionView(searchOption);
 			_searchView = searchItem.JavaCast<SearchView>();
 			_searchView.QueryTextChange += (s, e) => _adapter.Filter.InvokeFilter(e.NewText);
 
@@ -104,4 +111,25 @@ namespace LGSA.Droid.Fragments
 			return true;
 		}
 	}
+
+	public class ScreenNavigationListener : Java.Lang.Object, ActionBar.IOnNavigationListener
+	{
+		private readonly ArrayAdapter _adapter = null;
+		private readonly Activity _currentActivity;
+
+		public ScreenNavigationListener(Activity currentActivity, ArrayAdapter adapter)
+		{
+			_adapter = adapter;
+			_currentActivity = currentActivity;
+		}
+
+		public bool OnNavigationItemSelected(int itemPosition, long itemId)
+		{
+			Toast.MakeText (_currentActivity, "Clicked", ToastLength.Short);
+			return true;
+		}
+	}
+
+
+
 }

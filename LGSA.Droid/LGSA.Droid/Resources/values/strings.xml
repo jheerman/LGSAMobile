@@ -7,5 +7,11 @@
   <string name="ContactFragmentName">Contact Us</string>
   <string name="drawer_open">Open</string>
   <string name="drawer_close">Close</string>
-  <string name="action_search_search">Search</string>
+  <string name="action_schedule_search">Search</string>
+  <string name="action_schedule_filter">Filter</string>
+  <string name="LittleLassie">Little Lassie</string>
+  <string name="Lassie">Lassie</string>
+  <string name="Junior">Junior</string>
+  <string name="Senior">Senior</string>
+  <string name="All">All</string>
 </resources>

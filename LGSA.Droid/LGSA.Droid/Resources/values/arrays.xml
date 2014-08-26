@@ -5,4 +5,11 @@
     <item>@string/NewsFragmentName</item>
     <item>@string/ContactFragmentName</item>
   </string-array>
+  <string-array name="filter_division">
+  	<item>@string/All</item>
+    <item>@string/LittleLassie</item>
+    <item>@string/Lassie</item>
+    <item>@string/Junior</item>
+    <item>@string/Senior</item>
+  </string-array>
 </resources>

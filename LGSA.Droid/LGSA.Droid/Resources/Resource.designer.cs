@@ -30,6 +30,9 @@ namespace LGSA.Droid
 			// aapt resource value: 0x7f040000
 			public const int drawer_sections = 2130968576;
 			
+			// aapt resource value: 0x7f040001
+			public const int filter_division = 2130968577;
+			
 			static Array()
 			{
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
@@ -692,6 +695,9 @@ namespace LGSA.Droid
 		public partial class String
 		{
 			
+			// aapt resource value: 0x7f07000d
+			public const int All = 2131165197;
+			
 			// aapt resource value: 0x7f070001
 			public const int ApplicationName = 2131165185;
 			
@@ -701,14 +707,29 @@ namespace LGSA.Droid
 			// aapt resource value: 0x7f070000
 			public const int Hello = 2131165184;
 			
+			// aapt resource value: 0x7f07000b
+			public const int Junior = 2131165195;
+			
+			// aapt resource value: 0x7f07000a
+			public const int Lassie = 2131165194;
+			
+			// aapt resource value: 0x7f070009
+			public const int LittleLassie = 2131165193;
+			
 			// aapt resource value: 0x7f070003
 			public const int NewsFragmentName = 2131165187;
 			
 			// aapt resource value: 0x7f070002
 			public const int ScheduleFragmentName = 2131165186;
 			
+			// aapt resource value: 0x7f07000c
+			public const int Senior = 2131165196;
+			
+			// aapt resource value: 0x7f070008
+			public const int action_schedule_filter = 2131165192;
+			
 			// aapt resource value: 0x7f070007
-			public const int action_search_search = 2131165191;
+			public const int action_schedule_search = 2131165191;
 			
 			// aapt resource value: 0x7f070006
 			public const int drawer_close = 2131165190;
