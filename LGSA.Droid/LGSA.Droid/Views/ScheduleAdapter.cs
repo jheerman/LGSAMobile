@@ -1,5 +1,4 @@
-﻿using System;
-using Android.App;
+﻿using Android.App;
 using Android.Views;
 using Android.Widget;
 using LGSA.Domain;
@@ -14,9 +13,9 @@ namespace LGSA.Droid
 		public ScheduleAdapter ()
 		{ }
 
-		private readonly Activity _context;
-		private List<CalendarItem> _originalData;
-		private List<CalendarItem> _items;
+		readonly Activity _context;
+		List<CalendarItem> _originalData;
+		List<CalendarItem> _items;
 
 		public ScheduleAdapter (Activity context, List<CalendarItem> items)
 		{
@@ -67,9 +66,9 @@ namespace LGSA.Droid
 
 		public Filter Filter { get; private set; }
 
-		private class ScheduleFilter : Filter
+		class ScheduleFilter : Filter
 		{
-			private readonly ScheduleAdapter _adapter;
+			readonly ScheduleAdapter _adapter;
 			public ScheduleFilter(ScheduleAdapter adapter)
 			{
 				_adapter = adapter;
@@ -79,8 +78,7 @@ namespace LGSA.Droid
 			{
 				var returnObj = new FilterResults();
 				var results = new List<CalendarItem>();
-				if (_adapter._originalData == null)
-					_adapter._originalData = _adapter._items;
+				_adapter._originalData = _adapter._originalData ?? _adapter._items;
 
 				if (constraint == null) return returnObj;
 

@@ -5,4 +5,8 @@
 		android:queryHint="Search Schedule"
 		android:icon="@android:drawable/ic_menu_search"
 		android:title="@string/action_schedule_search"/>
+	<item android:id="@+id/action_schedule_share"
+          android:title="@string/schedule_share"
+          android:showAsAction="ifRoom"
+          android:actionProviderClass="android.widget.ShareActionProvider"/>
 </menu>

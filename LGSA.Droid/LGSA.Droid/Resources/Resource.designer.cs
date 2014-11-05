@@ -24,6 +24,10 @@ namespace LGSA.Droid
 			global::Android.Runtime.ResourceIdManager.UpdateIdValues();
 		}
 		
+		public static void UpdateIdValues()
+		{
+		}
+		
 		public partial class Array
 		{
 			
@@ -614,6 +618,9 @@ namespace LGSA.Droid
 			// aapt resource value: 0x7f0a0008
 			public const int action_schedule_search = 2131361800;
 			
+			// aapt resource value: 0x7f0a0009
+			public const int action_schedule_share = 2131361801;
+			
 			// aapt resource value: 0x7f0a0001
 			public const int content_frame = 2131361793;
 			
@@ -736,6 +743,9 @@ namespace LGSA.Droid
 			
 			// aapt resource value: 0x7f070005
 			public const int drawer_open = 2131165189;
+			
+			// aapt resource value: 0x7f07000e
+			public const int schedule_share = 2131165198;
 			
 			static String()
 			{

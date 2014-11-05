@@ -2,7 +2,6 @@
 
 using Android.App;
 using Android.Content;
-using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
@@ -17,14 +16,15 @@ namespace LGSA.Droid
 	[Activity (Label = "LGSA", Theme="@style/LGSA.Purple", Icon = "@drawable/icon")]
 	public class MainActivity : Activity
 	{
-		private DrawerToggle drawerToggle;
-		private string drawerTitle;
-		private string currentSectionTitle;
+		DrawerToggle drawerToggle;
+		string drawerTitle;
+		string currentSectionTitle;
 
-		private DrawerLayout drawerLayout;
-		private ListView drawerListView;
-		private string[] sections;
-		private int lastSelectedSection = -1;
+		DrawerLayout drawerLayout;
+		ListView drawerListView;
+		string[] sections;
+		int lastSelectedSection = -1;
+
 		protected override void OnCreate(Bundle savedInstanceState)
 		{
 			base.OnCreate(savedInstanceState);
@@ -35,10 +35,9 @@ namespace LGSA.Droid
 			currentSectionTitle = drawerTitle = Title;
 
 			drawerLayout = FindViewById<DrawerLayout>(Resource.Id.drawer_layout);
+
 			drawerListView = FindViewById<ListView>(Resource.Id.left_drawer);
-
 			drawerListView.Adapter = new ArrayAdapter<string>(this, Resource.Layout.item_menu, sections);
-
 			drawerListView.ItemClick += (sender, args) => ListItemClicked(args.Position);
 
 			drawerLayout.SetDrawerShadow(Resource.Drawable.drawer_shadow_light, (int)GravityFlags.Start);
@@ -68,9 +67,7 @@ namespace LGSA.Droid
 
 			//If first time you will want to go ahead and click first item.
 			if (savedInstanceState == null)
-			{
 				ListItemClicked(0);
-			}
 
 			ActionBar.SetDisplayHomeAsUpEnabled(true);
 			ActionBar.SetHomeButtonEnabled(true);
@@ -92,13 +89,10 @@ namespace LGSA.Droid
 		// true, then it has handled the app icon touch event
 		public override bool OnOptionsItemSelected(IMenuItem item)
 		{
-			if (drawerToggle.OnOptionsItemSelected(item))
-				return true;
-
-			return base.OnOptionsItemSelected(item);
+			return drawerToggle.OnOptionsItemSelected(item) || base.OnOptionsItemSelected(item);
 		}
 
-		private void ListItemClicked(int position)
+		void ListItemClicked(int position)
 		{
 			var transition = false;
 
@@ -123,7 +117,7 @@ namespace LGSA.Droid
 					transition = false;
 					var email = new Intent (Android.Content.Intent.ActionSend);
 					email.PutExtra (Android.Content.Intent.ExtraEmail, 
-					new string[]{ "info@lgsasoftball.org" });
+					new []{ "info@lgsasoftball.org" });
 					email.PutExtra (Android.Content.Intent.ExtraSubject, "Question");
 					email.SetType ("message/rfc822");
 					StartActivity (email);

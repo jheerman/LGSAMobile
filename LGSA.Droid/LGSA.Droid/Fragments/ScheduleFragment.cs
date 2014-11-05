@@ -1,20 +1,17 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using System.IO;
 
 using Android.App;
-using Android.Content;
 using Android.OS;
 using Android.Runtime;
-using Android.Util;
 using Android.Views;
 using Android.Widget;
+using Android.Support.V4.View;
+using Android.Content;
 
 using LGSA.Data;
 using LGSA.Domain;
-using System.IO;
-using Android.Support.V4.View;
 
 namespace LGSA.Droid.Fragments
 {
@@ -44,8 +41,6 @@ namespace LGSA.Droid.Fragments
 			Activity.ActionBar.SetListNavigationCallbacks (_spinnerAdapter, new ScreenNavigationListener (Activity, _spinnerAdapter));
 		}
 
-
-
 		public static ScheduleFragment NewInstance()
 		{
 			var scheduleFrag = new ScheduleFragment { Arguments = new Bundle() };
@@ -62,6 +57,13 @@ namespace LGSA.Droid.Fragments
 		{
 			Activity.MenuInflater.Inflate (Resource.Menu.schedule_menu, menu);
 
+			//Handle share action provider
+			var shareMenuItem = menu.FindItem (Resource.Id.action_schedule_share);           
+			var shareActionProvider =
+				(ShareActionProvider)shareMenuItem.ActionProvider;
+			shareActionProvider.SetShareIntent (CreateIntent ());
+
+			//Handle search action provider
 			var searchOption = menu.FindItem(Resource.Id.action_schedule_search);
 
 			//Handle expand/colapse of action bar
@@ -88,12 +90,18 @@ namespace LGSA.Droid.Fragments
 
 			return base.OnOptionsItemSelected (item);
 		}
+
+		Intent CreateIntent ()
+		{  
+			return new Intent (Intent.ActionSend);
+		}
 	}
+
 
 	public class SearchViewExpandListener 
 		: Java.Lang.Object, MenuItemCompat.IOnActionExpandListener
 	{
-		private readonly IFilterable _adapter;
+		readonly IFilterable _adapter;
 
 		public SearchViewExpandListener(IFilterable adapter)
 		{
@@ -129,7 +137,4 @@ namespace LGSA.Droid.Fragments
 			return true;
 		}
 	}
-
-
-
 }
